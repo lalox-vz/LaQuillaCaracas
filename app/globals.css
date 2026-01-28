@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-iron-stone;
+  }
+
+  body {
+    @apply bg-iron-black text-gray-100 antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Premium text selection */
+  ::selection {
+    @apply bg-iron-gold text-iron-black;
+  }
+
+  ::-moz-selection {
+    @apply bg-iron-gold text-iron-black;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-iron-black;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-iron-stone;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-iron-gold;
+  }
+
+  /* Focus states */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-iron-gold ring-offset-2 ring-offset-iron-black;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-iron-gold to-yellow-300 bg-clip-text text-transparent;
+    /* Extra padding to prevent descenders from being clipped */
+    padding-bottom: 0.25rem;
+    display: inline-block;
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(135deg, #C5A059, #e5c07b) 1;
+  }
+}
