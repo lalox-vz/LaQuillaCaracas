@@ -1,65 +1,82 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Check, Star, Crown, TrendingUp } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Check, Star, Crown, MessageCircle } from "lucide-react";
+
+type PlanId = 'ESSENTIAL' | 'PRO' | 'ELITE';
 
 const tiers = [
     {
-        name: "IRONLITH STANDARD",
-        price: "$3,000",
-        subtitle: "Core Técnico",
-        description: "La base sólida para tu presencia digital",
+        id: 'ESSENTIAL' as PlanId,
+        name: "OPCIÓN A: ESSENTIAL",
+        price: "$1,950",
+        subtitle: "El \"Sí\" Inmediato",
+        description: "Infraestructura Base",
         features: [
-            "Visualización Interactiva del Blue-Print",
-            "Uso de Logo Actual",
-            "Funcionalidad Inmediata",
-            "Hosting incluido (12 meses)",
-            "Soporte técnico básico",
+            "Mapa Interactivo Rápido",
+            "Logo Actual (Sin cambios)",
+            "1 Ronda de Ajustes",
+            "Entrega en 4 Semanas",
         ],
+        tagline: "Ideal para iniciar obra ya.",
         highlighted: false,
         icon: null,
     },
     {
-        name: "IRONLITH GOLD",
-        price: "$4,500",
-        subtitle: "Core + Marca",
-        description: "La inversión que se paga sola",
+        id: 'PRO' as PlanId,
+        name: "OPCIÓN B: PRO",
+        price: "$2,850",
+        subtitle: "El Estándar IronLith",
+        description: "Infraestructura + Marca",
         badge: "RECOMENDADO",
-        roi: "Recuperación estimada: 45 días",
         features: [
-            "Todo lo incluido en Standard",
-            "Refresh (Evolución de Identidad Visual)",
-            "Coherencia Estética Premium",
-            "Manual de Marca Básico",
-            "Optimización SEO On-Page",
-            "Analytics Dashboard",
+            "Mapa Interactivo Rápido",
+            "Modernización de Logo",
+            "3 Rondas de Ajustes",
+            "Soporte Prioritario",
         ],
+        tagline: "Ideal para renovar imagen.",
         highlighted: true,
         icon: Star,
     },
     {
-        name: "FOUNDERS' VISION",
-        price: "$8,500",
-        subtitle: "Estrategia Total (Elite)",
-        description: "El patrimonio digital que trasciende",
+        id: 'ELITE' as PlanId,
+        name: "OPCIÓN C: FOUNDERS' LEGACY",
+        price: "$5,000",
+        subtitle: "La Visión Completa",
+        description: "Dominio Total",
         features: [
-            "Todo lo incluido en Gold",
-            "Visualización + Capas de Datos Avanzadas",
-            "Rebranding Completo & Brand Bible",
-            "Posicionamiento de Hito Urbano",
-            "Estrategia de Marketing Digital",
-            "Activo de Marca Permanente",
+            "Mapa Interactivo Avanzado",
+            "Rebranding Completo",
+            "Galería Histórica \"1937\"",
+            "Manual de Identidad",
         ],
+        tagline: "Ideal para hacer historia.",
         highlighted: false,
         icon: Crown,
         badge: "ELITE",
-        justification: "Incluye Activo de Marca Permanente valorado en $3,000+",
     },
 ];
 
+// WhatsApp URL generator based on selected plan
+function getWhatsAppUrl(planId: PlanId): string {
+    const baseUrl = "https://wa.me/584241234567?text=";
+
+    const messages = {
+        ESSENTIAL: "Hola, vengo de la propuesta digital. He seleccionado la opción *ESSENTIAL ($1,950)*. Tengo mi código de acceso. ¿Podemos agendar el inicio?",
+        PRO: "Hola, vengo de la propuesta digital. He decidido invertir en la *Fase 1: PRO ($2,850)* con Modernización de Logo. Tengo mi código de acceso.",
+        ELITE: "Hola, vengo de la propuesta digital. Vamos con la visión completa: *FOUNDERS' LEGACY ($5,000)*. Quiero asegurar el legado digital. Tengo mi código."
+    };
+
+    return baseUrl + encodeURIComponent(messages[planId]);
+}
+
 export default function PricingTable() {
+    const [selectedPlan, setSelectedPlan] = useState<PlanId | null>(null);
+
     return (
-        <section className="py-24 px-6 bg-gradient-to-b from-iron-stone to-iron-black">
+        <section className="py-24 px-6 bg-gradient-to-b from-iron-stone to-iron-black relative">
             <div className="max-w-7xl mx-auto">
                 {/* Section header */}
                 <motion.div
@@ -81,6 +98,9 @@ export default function PricingTable() {
                 <div className="grid md:grid-cols-3 gap-8 mb-12">
                     {tiers.map((tier, index) => {
                         const Icon = tier.icon;
+                        const isSelected = selectedPlan === tier.id;
+                        const isOtherSelected = selectedPlan && selectedPlan !== tier.id;
+
                         return (
                             <motion.div
                                 key={tier.name}
@@ -92,11 +112,21 @@ export default function PricingTable() {
                             >
                                 {/* Card */}
                                 <div
+                                    onClick={() => setSelectedPlan(tier.id)}
                                     className={`
-                    bg-iron-black rounded-2xl p-8 h-full flex flex-col
+                    bg-iron-black rounded-2xl p-8 h-full flex flex-col cursor-pointer
+                    transition-all duration-300
                     ${tier.highlighted
-                                            ? 'border-2 border-iron-gold animate-glow-pulse'
-                                            : 'border border-iron-stone hover:border-iron-gold/50 transition-colors duration-300'
+                                            ? 'border-2 border-iron-gold'
+                                            : 'border border-iron-stone hover:border-iron-gold/50'
+                                        }
+                    ${isSelected
+                                            ? 'ring-2 ring-iron-gold scale-105 shadow-xl shadow-iron-gold/20'
+                                            : ''
+                                        }
+                    ${isOtherSelected
+                                            ? 'opacity-50 grayscale'
+                                            : ''
                                         }
                   `}
                                 >
@@ -112,6 +142,13 @@ export default function PricingTable() {
                       `}>
                                                 {tier.badge}
                                             </div>
+                                        </div>
+                                    )}
+
+                                    {/* Selection indicator */}
+                                    {isSelected && (
+                                        <div className="absolute -top-3 -right-3 w-8 h-8 bg-iron-gold rounded-full flex items-center justify-center shadow-lg">
+                                            <Check className="w-5 h-5 text-iron-black" />
                                         </div>
                                     )}
 
@@ -141,16 +178,6 @@ export default function PricingTable() {
                                         </div>
                                     </div>
 
-                                    {/* ROI Badge (only for Gold) */}
-                                    {tier.roi && (
-                                        <div className="mb-6 bg-iron-gold/10 border border-iron-gold/30 rounded-lg p-3 flex items-center gap-2">
-                                            <TrendingUp className="w-5 h-5 text-iron-gold flex-shrink-0" />
-                                            <span className="text-iron-gold text-sm font-semibold">
-                                                {tier.roi}
-                                            </span>
-                                        </div>
-                                    )}
-
                                     {/* Features */}
                                     <div className="flex-1 mb-6">
                                         <ul className="space-y-3">
@@ -165,11 +192,11 @@ export default function PricingTable() {
                                         </ul>
                                     </div>
 
-                                    {/* Justification (only for Elite) */}
-                                    {tier.justification && (
+                                    {/* Tagline */}
+                                    {tier.tagline && (
                                         <div className="pt-4 border-t border-iron-stone">
-                                            <p className="text-xs text-gray-500 italic">
-                                                {tier.justification}
+                                            <p className="text-sm text-gray-400 italic">
+                                                {tier.tagline}
                                             </p>
                                         </div>
                                     )}
@@ -181,17 +208,61 @@ export default function PricingTable() {
 
                 {/* Bottom note */}
                 <motion.div
-                    className="text-center"
+                    className="text-center mb-8"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
                     <p className="text-gray-400 text-sm">
-                        Cada nivel construye sobre el anterior. Recomendamos <span className="text-iron-gold font-semibold">IRONLITH GOLD</span> para resultados óptimos.
+                        Todos los planes incluyen la misma ingeniería de precisión. <span className="text-iron-gold font-semibold">La calidad no es negociable.</span>
                     </p>
                 </motion.div>
             </div>
+
+            {/* Sticky Bottom Action Bar */}
+            <AnimatePresence>
+                {selectedPlan && (
+                    <motion.div
+                        initial={{ y: 100, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: 100, opacity: 0 }}
+                        transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                        className="fixed bottom-0 left-0 right-0 z-50 bg-iron-black/95 backdrop-blur-md border-t border-iron-gold/30 shadow-2xl"
+                    >
+                        <div className="max-w-7xl mx-auto px-6 py-6">
+                            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                                {/* Selection info */}
+                                <div className="text-center md:text-left">
+                                    <p className="text-gray-400 text-sm mb-1">Plan Seleccionado:</p>
+                                    <p className="text-white font-bold text-lg">
+                                        {tiers.find(t => t.id === selectedPlan)?.name} - {tiers.find(t => t.id === selectedPlan)?.price}
+                                    </p>
+                                </div>
+
+                                {/* Action buttons */}
+                                <div className="flex gap-3">
+                                    <button
+                                        onClick={() => setSelectedPlan(null)}
+                                        className="px-6 py-3 border border-iron-stone text-gray-400 hover:text-white hover:border-iron-gold/50 rounded-lg transition-colors duration-300"
+                                    >
+                                        Cambiar Plan
+                                    </button>
+                                    <a
+                                        href={getWhatsAppUrl(selectedPlan)}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="px-8 py-3 bg-iron-gold hover:bg-iron-gold/90 text-iron-black font-bold rounded-lg transition-colors duration-300 flex items-center gap-2 shadow-lg shadow-iron-gold/20"
+                                    >
+                                        <MessageCircle className="w-5 h-5" />
+                                        Confirmar Fase 1: {selectedPlan}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 }

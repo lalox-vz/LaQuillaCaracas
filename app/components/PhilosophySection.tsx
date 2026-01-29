@@ -27,22 +27,22 @@ export default function PhilosophySection() {
 
                     {/* Title */}
                     <h2 className="text-3xl md:text-4xl font-bold mb-12 text-iron-gold">
-                        La Filosofía Alemana
+                        Filosofía de Precisión
                     </h2>
 
                     {/* Quote text */}
                     <blockquote className="text-xl md:text-2xl lg:text-3xl leading-relaxed text-gray-200 font-light mb-12">
                         <p className="mb-6">
-                            Al igual que sus fundadores no construyeron este edificio en un día, nosotros no improvisamos su futuro digital.
+                            Las grandes obras no se improvisan. La evolución de esta esquina, desde sus inicios en 1937 hasta el hito comercial que es hoy, es el resultado de la constancia y el tiempo.
                         </p>
                         <p className="mb-6">
-                            Esta propuesta corresponde estrictamente a la <span className="text-iron-gold font-normal">Fase 1</span>. Antes de automatizar, debemos construir. Necesitamos que el mapa cargue en milisegundos y que la marca imponga respeto.
+                            Esta propuesta obedece estrictamente a la <span className="text-iron-gold font-normal">Fase 1</span>. La lógica de ingeniería dicta que, antes de automatizar o decorar, debemos consolidar la base. Necesitamos que el mapa cargue en milisegundos y que la marca proyecte autoridad.
                         </p>
                         <p className="mb-6">
-                            Sin estos cimientos de <span className="text-iron-gold font-normal">&apos;hierro y piedra&apos;</span> (IronLith), cualquier tecnología futura sería frágil.
+                            En <span className="text-iron-gold font-normal">IronLith</span>, entendemos que sin una arquitectura técnica blindada, cualquier tecnología futura sería frágil.
                         </p>
                         <p className="text-iron-gold font-normal">
-                            Estamos poniendo la primera piedra del nuevo siglo para La Quilla.
+                            Estamos colocando la primera piedra firme para el futuro digital de La Quilla.
                         </p>
                     </blockquote>
 
@@ -50,7 +50,7 @@ export default function PhilosophySection() {
                     <div className="flex items-center justify-center gap-4">
                         <div className="w-16 h-px bg-gradient-to-r from-transparent to-iron-gold" />
                         <span className="text-gray-500 text-sm tracking-wider uppercase">
-                            German Engineering
+                            Arquitectura de Élite
                         </span>
                         <div className="w-16 h-px bg-gradient-to-l from-transparent to-iron-gold" />
                     </div>

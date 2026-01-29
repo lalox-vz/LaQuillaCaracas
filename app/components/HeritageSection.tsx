@@ -26,7 +26,7 @@ export default function HeritageSection() {
                     className="text-center mb-8"
                 >
                     <span className="inline-block bg-iron-gold/10 border border-iron-gold/30 text-iron-gold text-xs font-bold px-4 py-2 rounded-full tracking-[0.2em] uppercase">
-                        The Founders&apos; Legacy
+                        Legado y Visión
                     </span>
                 </motion.div>
 
@@ -36,23 +36,12 @@ export default function HeritageSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="text-4xl md:text-6xl font-bold text-center mb-4"
+                    className="text-4xl md:text-6xl font-bold text-center mb-16"
                     style={{ fontFamily: 'serif' }}
                 >
                     <span className="text-iron-gold">1937:</span>{" "}
-                    <span className="text-white">El Origen de la Precisión</span>
+                    <span className="text-white">El ADN de esta Esquina</span>
                 </motion.h2>
-
-                {/* Subtitle */}
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                    className="text-xl md:text-2xl text-gray-400 text-center mb-16 font-light italic"
-                >
-                    Donde antes se reparaban motores, hoy construimos el futuro digital.
-                </motion.p>
 
                 {/* Split Layout */}
                 <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -111,9 +100,9 @@ export default function HeritageSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.5 }}
-                            className="text-gray-300 leading-relaxed"
+                            className="text-gray-300 leading-relaxed text-justify"
                         >
-                            Cuando los fundadores llegaron de Alemania en 1937, esta esquina no era un centro comercial; era una casa con dos puestos donde se hacía mecánica honesta, justo antes de que el mundo cambiara.
+                            Mucho antes de ser un centro comercial, este suelo ya conocía el significado de la excelencia. En 1937, bajo el techo de un hogar alemán, el idioma que se hablaba era la disciplina. Aquí, en dos modestos puestos de mecánica, se reparaban motores con una precisión obsesiva, mientras el viejo Tranvía de los Valles del Tuy marcaba el ritmo de un Chacao que apenas despertaba entre haciendas de algodón.
                         </motion.p>
 
                         <motion.p
@@ -121,10 +110,9 @@ export default function HeritageSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.6 }}
-                            className="text-gray-300 leading-relaxed"
+                            className="text-gray-300 leading-relaxed text-justify"
                         >
-                            Chacao pasó de ser hacienda de algodón a urbanización moderna. El tranvía de los Valles del Tuy dio paso al Metro, y el taller dio paso a los locales. Todo cambió, menos una cosa:{" "}
-                            <span className="text-iron-gold font-semibold">el espíritu de trabajo</span>.
+                            El paisaje cambió. El asfalto cubrió la tierra y la casa familiar evolucionó hasta convertirse en los 14 locales que vemos hoy. Pero los cimientos invisibles nunca se movieron. Esa vocación de servicio, rectitud y esfuerzo europeo quedó sembrada en esta esquina, esperando el momento de florecer de nuevo con mayor fuerza.
                         </motion.p>
 
                         <motion.p
@@ -132,10 +120,9 @@ export default function HeritageSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.7 }}
-                            className="text-gray-300 leading-relaxed"
+                            className="text-gray-300 leading-relaxed text-justify"
                         >
-                            Hoy, IronLith honra ese origen. Ya no usamos llaves inglesas, usamos código. Pero la misión es la misma que la del abuelo en sus dos puestos de estacionamiento:{" "}
-                            <span className="text-white font-semibold">hacer que las cosas funcionen con excelencia técnica</span>.
+                            Hoy, el proyecto <span className="text-iron-gold font-medium">'La Quilla de Caracas'</span> recoge ese legado. Lo que comenzó como un servicio en dos puestos de estacionamiento se ha transformado en un punto de encuentro vibrante donde la ciudad converge día a día. La escala ha crecido, pero la ambición es la misma: honrar el esfuerzo de quienes llegaron primero, convirtiendo este espacio transitado en la referencia de calidad y modernidad más importante de toda Caracas.
                         </motion.p>
 
                         {/* Closing Quote */}

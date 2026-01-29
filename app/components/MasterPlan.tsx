@@ -6,28 +6,28 @@ import { DraftingCompass, Wifi, ShoppingBag, Lock } from "lucide-react";
 const phases = [
     {
         number: 1,
-        title: "FASE 1 (ACTUAL)",
-        subtitle: "The Foundation",
+        title: "FASE 1 (HOY)",
+        subtitle: "Cimientos & Marca",
         icon: DraftingCompass,
-        content: "Infraestructura & Identidad. Objetivo: Crear el Activo Digital. Entregable: Blue-Print + Brand Evolution. Estatus: Listo para iniciar.",
+        content: "Construcción de la infraestructura base. Desarrollamos el mapa interactivo y definimos la identidad visual para asegurar que la plataforma tenga la estabilidad técnica necesaria para crecer.",
         status: "active",
         color: "from-iron-gold/20 to-iron-gold/5",
     },
     {
         number: 2,
-        title: "FASE 2 (NEXT)",
-        subtitle: "Connectivity Engine",
+        title: "FASE 2 (PRÓXIMA)",
+        subtitle: "Wi-Fi & Publicidad",
         icon: Wifi,
-        content: "Infraestructura de Monetización. Concepto: Convertir aire en dinero. Tecnología: Captive Portal Inteligente (Free Tier → Paid Tier). Retorno: Ingresos pasivos vía Wi-Fi y Ad-Server Inmobiliario.",
+        content: "Modelo de ingresos tipo 'Aeropuerto'. Implementamos acceso a internet controlado (15 min libres) que luego genera renta mediante publicidad digital de marcas aliadas o pases de pago.",
         status: "future",
         color: "from-gray-700/20 to-gray-800/5",
     },
     {
         number: 3,
-        title: "FASE 3 (VISION)",
-        subtitle: "The Marketplace",
+        title: "FASE 3 (FUTURO)",
+        subtitle: "Data & Fidelización",
         icon: ShoppingBag,
-        content: "Ecosistema Comercial. Concepto: Shopify Interno & Logística. Plataforma Multi-Vendor para los 14 locales + Click & Collect. Resultado: El 'Amazon de Chacao'.",
+        content: "Transformamos visitas en datos. Creamos una base de clientes propia para medir el tráfico real del centro y enviar promociones directas que mantengan la esquina activa.",
         status: "future",
         color: "from-gray-700/20 to-gray-800/5",
     },
@@ -49,9 +49,9 @@ export default function MasterPlan() {
                         Visión de Futuro: <span className="text-gradient">La Economía Digital de La Quilla</span>
                     </h2>
                     <p className="text-gray-400 text-lg max-w-4xl mx-auto leading-relaxed">
-                        Para materializar la visión de un ecosistema autónomo y rentable, hemos estructurado la ingeniería en tres etapas evolutivas.
-                        <span className="text-white font-medium"> No se puede correr antes de caminar</span>; hoy cimentamos la marca (Fase 1)
-                        para luego monetizar el tráfico (Fase 2) y finalmente digitalizar el comercio (Fase 3).
+                        Para convertir la esquina en un activo digital rentable, estructuramos el crecimiento en tres etapas lógicas.
+                        <span className="text-white font-medium"> No se puede correr antes de caminar</span>; hoy cimentamos la infraestructura (Fase 1),
+                        para luego activar ingresos por Wi-Fi (Fase 2) y finalmente capitalizar la data de sus visitantes (Fase 3).
                     </p>
                 </motion.div>
 
@@ -125,7 +125,7 @@ export default function MasterPlan() {
                                         <div className="mt-6 pt-6 border-t border-gray-700/30">
                                             <p className="text-gray-600 text-xs italic flex items-center gap-2">
                                                 <Lock className="w-3 h-3" />
-                                                Requiere Infraestructura Fase 1
+                                                Requiere Fase {phase.number - 1}
                                             </p>
                                         </div>
                                     )}
@@ -145,8 +145,8 @@ export default function MasterPlan() {
                 >
                     <div className="inline-block bg-iron-stone/50 border border-iron-gold/30 rounded-lg px-6 py-4">
                         <p className="text-gray-400 text-sm">
-                            <span className="text-iron-gold font-semibold">Fase 1</span> es la inversión inicial.
-                            <span className="text-iron-gold font-semibold"> Fases 2 y 3</span> se autofinancian con los activos digitales creados.
+                            <span className="text-iron-gold font-semibold">La Fase 1</span> construye el Activo.
+                            <span className="text-iron-gold font-semibold"> Las Fases 2 y 3</span> activan el Retorno de Inversión.
                         </p>
                     </div>
                 </motion.div>
