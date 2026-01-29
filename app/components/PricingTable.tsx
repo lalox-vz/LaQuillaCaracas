@@ -1,61 +1,87 @@
 "use client";
 
-import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, Star, Crown, MessageCircle } from "lucide-react";
+import { Check, Star, X, MessageCircle, ChevronDown, Info } from "lucide-react";
+import { usePricing } from "../context/PricingContext";
+import { useState } from "react";
 
-type PlanId = 'ESSENTIAL' | 'PRO' | 'ELITE';
+type PlanId = 'ESSENTIAL' | 'INTEGRATED';
 
 const tiers = [
     {
         id: 'ESSENTIAL' as PlanId,
         name: "OPCIÓN A: ESSENTIAL",
-        price: "$1,950",
-        subtitle: "El \"Sí\" Inmediato",
-        description: "Infraestructura Base",
+        price: "$1,500",
+        subtitle: "La Infraestructura (Solo Web)",
+        description: "Inversión: $1,500 USD",
         features: [
-            "Mapa Interactivo Rápido",
-            "Logo Actual (Sin cambios)",
-            "1 Ronda de Ajustes",
-            "Entrega en 4 Semanas",
+            {
+                text: "Mapa Interactivo: Carga rápida",
+                included: true,
+                detail: "Sistema de navegación visual con geolocalización de locales. Optimizado para carga en <2 segundos, diseñado con tecnología React para fluidez premium."
+            },
+            {
+                text: "Diseño Web: Adaptado a móviles",
+                included: true,
+                detail: "Interfaz responsive que se adapta automáticamente a teléfonos, tablets y escritorio. Garantiza experiencia perfecta en dispositivos iOS y Android."
+            },
+            {
+                text: "Hosting: Configuración base",
+                included: true,
+                detail: "Alojamiento en servidores seguros con SSL incluido. Configuración inicial para soportar hasta 1,000 visitas mensuales sin degradación de rendimiento."
+            },
+            {
+                text: "Sin conexión a Google/Meta",
+                included: false,
+                detail: "Este paquete no incluye integración con ecosistemas publicitarios. Para rastreo y visibilidad online, considera la Opción B."
+            },
+            {
+                text: "Sin rastreo de visitas",
+                included: false,
+                detail: "No incluye herramientas de analítica. No podrás medir cuántas personas visitan tu sitio ni de dónde vienen. Para obtener estos datos, requieres la Opción B."
+            },
         ],
-        tagline: "Ideal para iniciar obra ya.",
+        tagline: "Construcción del sitio.",
         highlighted: false,
         icon: null,
     },
     {
-        id: 'PRO' as PlanId,
-        name: "OPCIÓN B: PRO",
-        price: "$2,850",
-        subtitle: "El Estándar IronLith",
-        description: "Infraestructura + Marca",
-        badge: "RECOMENDADO",
+        id: 'INTEGRATED' as PlanId,
+        name: "OPCIÓN B: INTEGRATED",
+        price: "$2,500",
+        subtitle: "El Ecosistema (Web + Tráfico)",
+        description: "Inversión: $2,500 USD",
+        badge: "RECOMENDADA",
         features: [
-            "Mapa Interactivo Rápido",
-            "Modernización de Logo",
-            "3 Rondas de Ajustes",
-            "Soporte Prioritario",
+            {
+                text: "Todo lo de la Opción A",
+                included: true,
+                detail: "Incluye: Mapa interactivo de carga ultrarrápida, diseño responsive para todos los dispositivos, y hosting seguro con SSL. Base sólida para construir tu presencia digital."
+            },
+            {
+                text: "Google Indexing (SEO): Alta en buscadores",
+                included: true,
+                detail: "Configuración técnica para que Google y otros buscadores encuentren tu sitio. Incluye: sitemap.xml, meta tags optimizados, y estructura de datos para aparecer en búsquedas como 'centros comerciales Chacao'."
+            },
+            {
+                text: "Data Suite: Google Analytics 4 + Reportes",
+                included: true,
+                detail: "Panel completo de analítica: cuántas visitas recibes, de dónde vienen (Google, Instagram, directo), qué locales son más populares, y reportes mensuales automáticos vía email."
+            },
+            {
+                text: "Infraestructura Ad-Ready: Meta Pixel y Open Graph",
+                included: true,
+                detail: "Meta Pixel instalado te permite crear audiencias de retargeting en Instagram/Facebook. Open Graph hace que al compartir el link en WhatsApp, se vea una tarjeta visual premium (no solo un link sin formato)."
+            },
+            {
+                text: "Tarjetas optimizadas para compartir en WhatsApp",
+                included: true,
+                detail: "Cuando alguien comparta tu sitio, aparecerá con imagen, título y descripción atractiva. Incrementa clicks hasta 300% vs. un link simple. Esencial para marketing viral orgánico."
+            },
         ],
-        tagline: "Ideal para renovar imagen.",
+        tagline: "Construcción + Conexión al mundo.",
         highlighted: true,
         icon: Star,
-    },
-    {
-        id: 'ELITE' as PlanId,
-        name: "OPCIÓN C: FOUNDERS' LEGACY",
-        price: "$5,000",
-        subtitle: "La Visión Completa",
-        description: "Dominio Total",
-        features: [
-            "Mapa Interactivo Avanzado",
-            "Rebranding Completo",
-            "Galería Histórica \"1937\"",
-            "Manual de Identidad",
-        ],
-        tagline: "Ideal para hacer historia.",
-        highlighted: false,
-        icon: Crown,
-        badge: "ELITE",
     },
 ];
 
@@ -64,19 +90,19 @@ function getWhatsAppUrl(planId: PlanId): string {
     const baseUrl = "https://wa.me/584241234567?text=";
 
     const messages = {
-        ESSENTIAL: "Hola, vengo de la propuesta digital. He seleccionado la opción *ESSENTIAL ($1,950)*. Tengo mi código de acceso. ¿Podemos agendar el inicio?",
-        PRO: "Hola, vengo de la propuesta digital. He decidido invertir en la *Fase 1: PRO ($2,850)* con Modernización de Logo. Tengo mi código de acceso.",
-        ELITE: "Hola, vengo de la propuesta digital. Vamos con la visión completa: *FOUNDERS' LEGACY ($5,000)*. Quiero asegurar el legado digital. Tengo mi código."
+        ESSENTIAL: "¡Hola IronLith! He revisado la propuesta y estoy listo para comenzar. Acepto la *OPCIÓN A: ESSENTIAL ($1,500)* y quiero iniciar la Fase 1 de La Quilla. ¿Cuál es el siguiente paso?",
+        INTEGRATED: "¡Hola IronLith! Acepto la propuesta y quiero arrancar con la *OPCIÓN B: INTEGRATED ($2,500)*. Estoy emocionado por construir el ecosistema completo para La Quilla. ¡Empecemos!",
     };
 
     return baseUrl + encodeURIComponent(messages[planId]);
 }
 
 export default function PricingTable() {
-    const [selectedPlan, setSelectedPlan] = useState<PlanId | null>(null);
+    const { selectedPlan, setSelectedPlan } = usePricing();
+    const [expandedTier, setExpandedTier] = useState<PlanId | null>(null);
 
     return (
-        <section className="py-24 px-6 bg-gradient-to-b from-iron-stone to-iron-black relative">
+        <section id="pricing-section" className="py-24 px-6 bg-gradient-to-b from-iron-stone to-iron-black relative">
             <div className="max-w-7xl mx-auto">
                 {/* Section header */}
                 <motion.div
@@ -94,12 +120,13 @@ export default function PricingTable() {
                     </p>
                 </motion.div>
 
-                {/* Pricing grid */}
-                <div className="grid md:grid-cols-3 gap-8 mb-12">
+                {/* Pricing grid - 2 columns */}
+                <div className="grid md:grid-cols-2 gap-8 mb-12 max-w-5xl mx-auto">
                     {tiers.map((tier, index) => {
                         const Icon = tier.icon;
                         const isSelected = selectedPlan === tier.id;
                         const isOtherSelected = selectedPlan && selectedPlan !== tier.id;
+                        const isExpanded = expandedTier === tier.id;
 
                         return (
                             <motion.div
@@ -112,9 +139,8 @@ export default function PricingTable() {
                             >
                                 {/* Card */}
                                 <div
-                                    onClick={() => setSelectedPlan(tier.id)}
                                     className={`
-                    bg-iron-black rounded-2xl p-8 h-full flex flex-col cursor-pointer
+                    bg-iron-black rounded-2xl p-8 h-full flex flex-col
                     transition-all duration-300
                     ${tier.highlighted
                                             ? 'border-2 border-iron-gold'
@@ -133,13 +159,7 @@ export default function PricingTable() {
                                     {/* Badge */}
                                     {tier.badge && (
                                         <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                                            <div className={`
-                        px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide
-                        ${tier.highlighted
-                                                    ? 'bg-iron-gold text-iron-black'
-                                                    : 'bg-iron-stone text-iron-gold'
-                                                }
-                      `}>
+                                            <div className="bg-iron-gold text-iron-black px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
                                                 {tier.badge}
                                             </div>
                                         </div>
@@ -163,9 +183,6 @@ export default function PricingTable() {
                                         <p className="text-iron-gold text-sm font-semibold mb-2">
                                             {tier.subtitle}
                                         </p>
-                                        <p className="text-gray-400 text-sm">
-                                            {tier.description}
-                                        </p>
                                     </div>
 
                                     {/* Price */}
@@ -181,20 +198,81 @@ export default function PricingTable() {
                                     {/* Features */}
                                     <div className="flex-1 mb-6">
                                         <ul className="space-y-3">
-                                            {tier.features.map((feature) => (
-                                                <li key={feature} className="flex items-start gap-3">
-                                                    <Check className="w-5 h-5 text-iron-gold flex-shrink-0 mt-0.5" />
-                                                    <span className="text-gray-300 text-sm">
-                                                        {feature}
+                                            {tier.features.map((feature, idx) => (
+                                                <li key={idx} className="flex items-start gap-3">
+                                                    {feature.included ? (
+                                                        <Check className="w-5 h-5 text-iron-gold flex-shrink-0 mt-0.5" />
+                                                    ) : (
+                                                        <X className="w-5 h-5 text-gray-600 flex-shrink-0 mt-0.5" />
+                                                    )}
+                                                    <span className={`text-sm ${feature.included ? 'text-gray-300' : 'text-gray-600'}`}>
+                                                        {feature.text}
                                                     </span>
                                                 </li>
                                             ))}
                                         </ul>
                                     </div>
 
+                                    {/* Select button */}
+                                    <button
+                                        onClick={() => setSelectedPlan(tier.id)}
+                                        className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 mb-3 ${isSelected
+                                            ? 'bg-iron-gold text-iron-black'
+                                            : 'bg-iron-stone hover:bg-iron-gold/20 text-white border border-iron-gold/30'
+                                            }`}
+                                    >
+                                        {isSelected ? '✓ Plan Seleccionado' : 'Seleccionar Plan'}
+                                    </button>
+
+                                    {/* Technical details toggle */}
+                                    <button
+                                        onClick={() => setExpandedTier(isExpanded ? null : tier.id)}
+                                        className="w-full py-2 text-sm text-iron-gold hover:text-iron-gold/80 transition-colors duration-300 flex items-center justify-center gap-2"
+                                    >
+                                        <Info className="w-4 h-4" />
+                                        {isExpanded ? 'Ocultar Detalles Técnicos' : 'Ver Detalles Técnicos'}
+                                        <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
+                                    </button>
+
+                                    {/* Expanded technical details */}
+                                    <AnimatePresence>
+                                        {isExpanded && (
+                                            <motion.div
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: 'auto', opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                transition={{ duration: 0.3 }}
+                                                className="overflow-hidden"
+                                            >
+                                                <div className="mt-4 pt-4 border-t border-iron-stone space-y-4">
+                                                    <h4 className="text-xs font-bold text-iron-gold uppercase tracking-wide mb-3">
+                                                        Desglose Técnico
+                                                    </h4>
+                                                    {tier.features.map((feature, idx) => (
+                                                        <div key={idx} className="bg-iron-stone/30 rounded-lg p-3">
+                                                            <div className="flex items-start gap-2 mb-2">
+                                                                {feature.included ? (
+                                                                    <Check className="w-4 h-4 text-iron-gold flex-shrink-0 mt-0.5" />
+                                                                ) : (
+                                                                    <X className="w-4 h-4 text-gray-600 flex-shrink-0 mt-0.5" />
+                                                                )}
+                                                                <p className={`text-xs font-semibold ${feature.included ? 'text-white' : 'text-gray-500'}`}>
+                                                                    {feature.text}
+                                                                </p>
+                                                            </div>
+                                                            <p className="text-xs text-gray-400 leading-relaxed pl-6">
+                                                                {feature.detail}
+                                                            </p>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+
                                     {/* Tagline */}
                                     {tier.tagline && (
-                                        <div className="pt-4 border-t border-iron-stone">
+                                        <div className="pt-4 border-t border-iron-stone mt-4">
                                             <p className="text-sm text-gray-400 italic">
                                                 {tier.tagline}
                                             </p>

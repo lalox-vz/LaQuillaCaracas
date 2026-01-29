@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Clock } from "lucide-react";
 
 export default function HeritageSection() {
@@ -53,39 +54,24 @@ export default function HeritageSection() {
                         transition={{ duration: 0.8, delay: 0.4 }}
                         className="relative"
                     >
-                        {/* Sepia overlay container */}
-                        <div className="relative aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-iron-stone via-iron-black to-iron-stone border border-iron-gold/20">
-                            {/* Abstract vintage pattern */}
-                            <div
-                                className="absolute inset-0 opacity-20"
-                                style={{
-                                    backgroundImage: `
-                    repeating-linear-gradient(
-                      90deg,
-                      rgba(197, 160, 89, 0.1) 0px,
-                      transparent 2px,
-                      transparent 4px
-                    ),
-                    repeating-linear-gradient(
-                      0deg,
-                      rgba(197, 160, 89, 0.1) 0px,
-                      transparent 2px,
-                      transparent 4px
-                    )
-                  `,
-                                }}
+                        {/* Historical Image Container */}
+                        <div className="relative aspect-square rounded-lg overflow-hidden border border-iron-gold/20">
+                            {/* Historical Photo */}
+                            <Image
+                                src="/quilla-1937.jpg"
+                                alt="La Quilla de Caracas en 1937"
+                                fill
+                                className="object-cover sepia"
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                priority={false}
+                                quality={85}
                             />
 
-                            {/* Center icon */}
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <Clock className="w-24 h-24 text-iron-gold/30" />
-                            </div>
-
                             {/* Bottom gradient overlay */}
-                            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-iron-black/80 to-transparent" />
+                            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-iron-black/80 to-transparent z-10" />
 
                             {/* Date label */}
-                            <div className="absolute bottom-4 left-4">
+                            <div className="absolute bottom-4 left-4 z-10">
                                 <span className="text-iron-gold text-sm font-light tracking-wider">
                                     Chacao, 1937
                                 </span>
