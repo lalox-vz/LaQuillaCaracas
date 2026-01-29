@@ -51,7 +51,12 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-iron-gold to-yellow-300 bg-clip-text text-transparent;
+    @apply text-iron-gold;
+    /* Fallback for browsers/devices struggling with bg-clip */
+    @apply bg-gradient-to-r from-iron-gold via-yellow-200 to-iron-gold bg-clip-text text-transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     /* Extra padding to prevent descenders from being clipped */
     padding-bottom: 0.25rem;
     display: inline-block;

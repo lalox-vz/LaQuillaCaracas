@@ -11,7 +11,7 @@ const config: Config = {
             colors: {
                 iron: {
                     black: '#0a0a0a',
-                    gold: '#C5A059',
+                    gold: '#FDB931', // Brighter, more vibrant gold for better mobile contrast
                     stone: '#1c1c1c',
                 },
             },
@@ -23,10 +23,10 @@ const config: Config = {
             keyframes: {
                 'glow-pulse': {
                     '0%, 100%': {
-                        boxShadow: '0 0 20px rgba(197, 160, 89, 0.4), 0 0 40px rgba(197, 160, 89, 0.2)',
+                        boxShadow: '0 0 20px rgba(253, 185, 49, 0.4), 0 0 40px rgba(253, 185, 49, 0.2)',
                     },
                     '50%': {
-                        boxShadow: '0 0 30px rgba(197, 160, 89, 0.6), 0 0 60px rgba(197, 160, 89, 0.3)',
+                        boxShadow: '0 0 30px rgba(253, 185, 49, 0.6), 0 0 60px rgba(253, 185, 49, 0.3)',
                     },
                 },
                 'fade-in': {

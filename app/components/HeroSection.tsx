@@ -11,7 +11,7 @@ export default function HeroSection() {
 
             {/* Subtle pattern overlay */}
             <div className="absolute inset-0 opacity-5" style={{
-                backgroundImage: `radial-gradient(circle at 1px 1px, rgb(197, 160, 89) 1px, transparent 0)`,
+                backgroundImage: `radial-gradient(circle at 1px 1px, rgb(253, 185, 49) 1px, transparent 0)`,
                 backgroundSize: '40px 40px'
             }} />
 

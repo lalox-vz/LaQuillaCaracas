@@ -11,7 +11,7 @@ const phases = [
         icon: MessageSquare,
         duration: "Semana 1",
         weeks: 1,
-        color: "from-iron-gold/20 to-iron-gold/5",
+        color: "from-iron-gold/30 to-iron-gold/10", // Increased opacity for better visibility
     },
     {
         number: 2,
@@ -20,7 +20,7 @@ const phases = [
         icon: Hammer,
         duration: "Semanas 2-3",
         weeks: 2,
-        color: "from-iron-gold/20 to-iron-gold/5",
+        color: "from-iron-gold/30 to-iron-gold/10",
     },
     {
         number: 3,
@@ -29,7 +29,7 @@ const phases = [
         icon: Target,
         duration: "Semana 4",
         weeks: 1,
-        color: "from-iron-gold/20 to-iron-gold/5",
+        color: "from-iron-gold/30 to-iron-gold/10",
     },
     {
         number: 4,
@@ -38,7 +38,7 @@ const phases = [
         icon: Rocket,
         duration: "Semana 5 (Opcional)",
         weeks: 1,
-        color: "from-iron-gold/20 to-iron-gold/5",
+        color: "from-iron-gold/30 to-iron-gold/10",
         optional: true,
     },
 ];
@@ -134,28 +134,28 @@ export default function ExecutionTimeline() {
                             <span className="opacity-50">S5</span>
                         </div>
 
-                        {/* Timeline bar with phase labels */}
+                        {/* Timeline bar with phase labels - HIGH CONTRAST OPACITY */}
                         <div className="relative h-14 bg-iron-black rounded-lg overflow-hidden border border-iron-stone">
                             {/* Phase 1 - Week 1 (20%) */}
-                            <div className="absolute h-full w-[20%] bg-gradient-to-r from-iron-gold/60 to-iron-gold/40 border-r border-iron-stone flex flex-col items-center justify-center">
+                            <div className="absolute h-full w-[20%] bg-gradient-to-r from-iron-gold/90 to-iron-gold/70 border-r border-iron-stone flex flex-col items-center justify-center">
                                 <span className="text-[10px] font-bold text-iron-black">F1</span>
-                                <span className="text-[8px] text-iron-black/70">1sem</span>
+                                <span className="text-[8px] text-iron-black/80 font-medium">1sem</span>
                             </div>
 
                             {/* Phase 2 - Weeks 2-3 (40%) */}
-                            <div className="absolute h-full w-[40%] left-[20%] bg-gradient-to-r from-iron-gold/50 to-iron-gold/30 border-r border-iron-stone flex flex-col items-center justify-center">
-                                <span className="text-[10px] font-bold text-white">FASE 2</span>
-                                <span className="text-[8px] text-gray-300">2 semanas</span>
+                            <div className="absolute h-full w-[40%] left-[20%] bg-gradient-to-r from-iron-gold/70 to-iron-gold/50 border-r border-iron-stone flex flex-col items-center justify-center">
+                                <span className="text-[10px] font-bold text-white drop-shadow-md">FASE 2</span>
+                                <span className="text-[8px] text-white/90">2 semanas</span>
                             </div>
 
                             {/* Phase 3 - Week 4 (20%) */}
-                            <div className="absolute h-full w-[20%] left-[60%] bg-gradient-to-r from-iron-gold/40 to-iron-gold/20 border-r border-iron-stone flex flex-col items-center justify-center">
+                            <div className="absolute h-full w-[20%] left-[60%] bg-gradient-to-r from-iron-gold/50 to-iron-gold/30 border-r border-iron-stone flex flex-col items-center justify-center">
                                 <span className="text-[10px] font-bold text-white">F3</span>
-                                <span className="text-[8px] text-gray-300">1sem</span>
+                                <span className="text-[8px] text-gray-200">1sem</span>
                             </div>
 
                             {/* Phase 4 - Week 5 (20% - Optional) */}
-                            <div className="absolute h-full w-[20%] left-[80%] bg-gradient-to-r from-iron-gold/20 to-iron-gold/10 opacity-40 flex flex-col items-center justify-center">
+                            <div className="absolute h-full w-[20%] left-[80%] bg-gradient-to-r from-iron-gold/20 to-iron-gold/10 opacity-60 flex flex-col items-center justify-center">
                                 <span className="text-[10px] font-bold text-gray-400">F4*</span>
                                 <span className="text-[8px] text-gray-500">opt</span>
                             </div>
