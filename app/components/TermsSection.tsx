@@ -21,15 +21,26 @@ export default function TermsSection() {
                 }, 500);
             }
         } else {
-            // Generate WhatsApp URL and open
+            // Generate message based on plan
             const messages = {
-                ESSENTIAL: "¡Hola IronLith! He revisado la propuesta y estoy listo para comenzar. Acepto la *OPCIÓN A: ESSENTIAL ($1,500)* y quiero iniciar la Fase 1 de La Quilla. ¿Cuál es el siguiente paso?",
-                INTEGRATED: "¡Hola IronLith! Acepto la propuesta y quiero arrancar con la *OPCIÓN B: INTEGRATED ($2,500)*. Estoy emocionado por construir el ecosistema completo para La Quilla. ¡Empecemos!",
+                ESSENTIAL: "Hola equipo IronLith. Confirmo mi aprobación para el PLAN A: ESSENTIAL ($1,500). Estoy listo para iniciar la construcción de La Quilla (Fase 1).",
+                INTEGRATED: "Hola equipo IronLith. Confirmo mi aprobación para el PLAN B: INTEGRATED ($2,500). Estoy listo para iniciar el ecosistema completo de La Quilla.",
             };
 
             const message = messages[selectedPlan];
-            const url = `https://wa.me/584241234567?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
+            const groupUrl = "https://chat.whatsapp.com/B6v6uAbQyU4JTNril5j8y7";
+
+            // Try to copy to clipboard for better UX in the group (best effort)
+            navigator.clipboard.writeText(message)
+                .then(() => {
+                    // Success copying
+                })
+                .catch(err => {
+                    console.error('Error copying text: ', err);
+                });
+
+            // Open group link immediately
+            window.open(groupUrl, '_blank');
         }
     };
 
@@ -99,8 +110,8 @@ export default function TermsSection() {
                             <button
                                 onClick={handleActivatePhase1}
                                 className={`inline-block font-semibold px-8 py-3 rounded-lg transition-all duration-300 ${selectedPlan
-                                        ? 'bg-iron-gold hover:bg-iron-gold/90 text-iron-black hover:scale-105 shadow-lg shadow-iron-gold/20'
-                                        : 'bg-iron-gold/50 text-iron-black/70 cursor-pointer hover:bg-iron-gold/70'
+                                    ? 'bg-iron-gold hover:bg-iron-gold/90 text-iron-black hover:scale-105 shadow-lg shadow-iron-gold/20'
+                                    : 'bg-iron-gold/50 text-iron-black/70 cursor-pointer hover:bg-iron-gold/70'
                                     }`}
                             >
                                 {selectedPlan ? '✓ ACTIVAR FASE 1 - INICIAR OBRA' : '⚠ SELECCIONA TU PLAN PRIMERO'}
