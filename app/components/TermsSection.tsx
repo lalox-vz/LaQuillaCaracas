@@ -23,24 +23,17 @@ export default function TermsSection() {
         } else {
             // Generate message based on plan
             const messages = {
-                ESSENTIAL: "Hola equipo IronLith. Confirmo mi aprobación para el PLAN A: ESSENTIAL ($1,500). Estoy listo para iniciar la construcción de La Quilla (Fase 1).",
-                INTEGRATED: "Hola equipo IronLith. Confirmo mi aprobación para el PLAN B: INTEGRATED ($2,500). Estoy listo para iniciar el ecosistema completo de La Quilla.",
+                ESSENTIAL: "Hola. Confirmo mi aprobación para el PLAN A: ESSENTIAL ($1,500). Estoy listo para iniciar la construcción de La Quilla (Fase 1).",
+                INTEGRATED: "Hola. Confirmo mi aprobación para el PLAN B: INTEGRATED ($2,500). Estoy listo para iniciar el ecosistema completo de La Quilla.",
             };
 
             const message = messages[selectedPlan];
-            const groupUrl = "https://chat.whatsapp.com/B6v6uAbQyU4JTNril5j8y7";
+            // Format: wa.me/NUMBER?text=MESSAGE
+            // Number format: 34650969466 (Spain code 34)
+            const url = `https://wa.me/34650969466?text=${encodeURIComponent(message)}`;
 
-            // Try to copy to clipboard for better UX in the group (best effort)
-            navigator.clipboard.writeText(message)
-                .then(() => {
-                    // Success copying
-                })
-                .catch(err => {
-                    console.error('Error copying text: ', err);
-                });
-
-            // Open group link immediately
-            window.open(groupUrl, '_blank');
+            // Open WhatsApp direct chat
+            window.open(url, '_blank');
         }
     };
 

@@ -19,8 +19,23 @@ const config: Config = {
                 'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
                 'fade-in': 'fade-in 1s ease-out',
                 'slide-up': 'slide-up 0.8s ease-out',
+                'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
             },
             keyframes: {
+                'shake': {
+                    '10%, 90%': {
+                        transform: 'translate3d(-1px, 0, 0)',
+                    },
+                    '20%, 80%': {
+                        transform: 'translate3d(2px, 0, 0)',
+                    },
+                    '30%, 50%, 70%': {
+                        transform: 'translate3d(-4px, 0, 0)',
+                    },
+                    '40%, 60%': {
+                        transform: 'translate3d(4px, 0, 0)',
+                    },
+                },
                 'glow-pulse': {
                     '0%, 100%': {
                         boxShadow: '0 0 20px rgba(253, 185, 49, 0.4), 0 0 40px rgba(253, 185, 49, 0.2)',

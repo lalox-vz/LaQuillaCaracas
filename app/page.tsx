@@ -45,7 +45,7 @@ export default function Home() {
                     <TermsSection />
 
                     {/* Footer */}
-                    <footer className="bg-iron-black border-t border-iron-stone py-8 px-6">
+                    <footer id="site-footer" className="bg-iron-black border-t border-iron-stone py-8 px-6">
                         <div className="max-w-7xl mx-auto text-center">
                             <p className="text-gray-500 text-sm">
                                 &copy; {new Date().getFullYear()} <span className="text-iron-gold">IronLith</span>.

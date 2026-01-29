@@ -87,7 +87,7 @@ const tiers = [
 
 // WhatsApp URL generator based on selected plan
 function getWhatsAppUrl(planId: PlanId): string {
-    const baseUrl = "https://wa.me/584241234567?text=";
+    const baseUrl = "https://wa.me/34650969466?text=";
 
     const messages = {
         ESSENTIAL: "¡Hola IronLith! He revisado la propuesta y estoy listo para comenzar. Acepto la *OPCIÓN A: ESSENTIAL ($1,500)* y quiero iniciar la Fase 1 de La Quilla. ¿Cuál es el siguiente paso?",

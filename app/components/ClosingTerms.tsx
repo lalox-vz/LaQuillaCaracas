@@ -20,7 +20,7 @@ export default function ClosingTerms() {
                 </div>
 
                 <a
-                    href="https://wa.me/584241234567?text=Hola%2C%20estoy%20listo%20para%20iniciar%20la%20construcci%C3%B3n%20de%20la%20Fase%201%20de%20La%20Quilla."
+                    href="https://wa.me/34650969466?text=Hola%2C%20estoy%20listo%20para%20iniciar%20la%20construcci%C3%B3n%20de%20la%20Fase%201%20de%20La%20Quilla."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-[#C5A059] hover:bg-[#b08d4b] text-[#0a0a0a] font-bold text-lg px-12 py-5 rounded-lg shadow-lg hover:shadow-[#C5A059]/20 transition-all transform hover:-translate-y-1"
