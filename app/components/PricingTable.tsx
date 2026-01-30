@@ -12,36 +12,48 @@ const tiers = [
         id: 'ESSENTIAL' as PlanId,
         name: "OPCIÓN A: ESSENTIAL",
         price: "$1,500",
-        subtitle: "La Infraestructura (Solo Web)",
+        subtitle: "El Activo Digital (Solo Web)",
         description: "Inversión: $1,500 USD",
         features: [
             {
-                text: "Mapa Interactivo: Carga rápida",
+                text: "Mapa interactivo (base): navegación fluida",
+                detailTitle: "Mapa interactivo (base): navegación fluida — $450–$650",
                 included: true,
-                detail: "Sistema de navegación visual con geolocalización de locales. Optimizado para carga en <2 segundos, diseñado con tecnología React para fluidez premium."
+                detail: "Estructura de navegación para presentar el plano/directorio de forma clara y rápida. Optimización para que se sienta ligero y estable en móvil."
             },
             {
-                text: "Diseño Web: Adaptado a móviles",
+                text: "Directorio de locales: fichas informativas",
+                detailTitle: "Directorio de locales: fichas informativas — $350–$550",
                 included: true,
-                detail: "Interfaz responsive que se adapta automáticamente a teléfonos, tablets y escritorio. Garantiza experiencia perfecta en dispositivos iOS y Android."
+                detail: "Listado de tiendas con ficha por local (nombre, categoría, horario y contacto). Pensado para que el visitante encuentre lo que busca sin fricción."
             },
             {
-                text: "Hosting: Configuración base",
+                text: "Diseño web premium: 100% móvil",
+                detailTitle: "Diseño web premium (mobile-first) — $350–$500",
                 included: true,
-                detail: "Alojamiento en servidores seguros con SSL incluido. Configuración inicial para soportar hasta 1,000 visitas mensuales sin degradación de rendimiento."
+                detail: "Diseño UI/UX y maquetación responsive. Jerarquía visual, contraste y tipografía para proyectar autoridad de marca."
             },
             {
-                text: "Sin conexión a Google/Meta",
+                text: "Hosting + SSL: configuración base",
+                detailTitle: "Hosting + SSL + despliegue base — $200–$300",
+                included: true,
+                detail: "Despliegue en infraestructura segura con SSL incluido. Entrega con acceso y base lista para operar."
+            },
+            {
+                text: "Sin alta en Google (SEO avanzado)",
+                detailTitle: "Sin alta en Google (SEO avanzado)",
                 included: false,
-                detail: "Este paquete no incluye integración con ecosistemas publicitarios. Para rastreo y visibilidad online, considera la Opción B."
+                detail: "Este plan no incluye indexación completa ni optimización avanzada para buscadores. Se puede activar al pasar a Opción B sin rehacer el sitio."
             },
             {
-                text: "Sin rastreo de visitas",
+                text: "Sin analítica de visitas (sin rastreo)",
+                detailTitle: "Sin analítica (sin rastreo)",
                 included: false,
-                detail: "No incluye herramientas de analítica. No podrás medir cuántas personas visitan tu sitio ni de dónde vienen. Para obtener estos datos, requieres la Opción B."
+                detail: "No incluye herramientas para medir visitas, clics o comportamiento. Ideal si quieres una web limpia y privada desde el día 1."
             },
         ],
-        tagline: "Construcción del sitio.",
+        tagline: "Construcción del activo digital.",
+        note: "Nota: Los montos por módulo son una referencia de alcance para entender la inversión. El precio final se maneja por paquete.",
         highlighted: false,
         icon: null,
     },
@@ -49,37 +61,49 @@ const tiers = [
         id: 'INTEGRATED' as PlanId,
         name: "OPCIÓN B: INTEGRATED",
         price: "$2,500",
-        subtitle: "El Ecosistema (Web + Tráfico)",
+        subtitle: "El Ecosistema (Web + Tráfico + Data)",
         description: "Inversión: $2,500 USD",
         badge: "RECOMENDADA",
         features: [
             {
                 text: "Todo lo de la Opción A",
+                detailTitle: "Todo lo de la Opción A — $1,500",
                 included: true,
-                detail: "Incluye: Mapa interactivo de carga ultrarrápida, diseño responsive para todos los dispositivos, y hosting seguro con SSL. Base sólida para construir tu presencia digital."
+                detail: "Incluye el activo digital completo: base del mapa/directorio, fichas de locales, diseño premium responsive y despliegue con SSL."
             },
             {
-                text: "Google Indexing (SEO): Alta en buscadores",
+                text: "Alta en Google (SEO técnico): indexación",
+                detailTitle: "Alta en Google (SEO técnico): indexación — $350–$500",
                 included: true,
-                detail: "Configuración técnica para que Google y otros buscadores encuentren tu sitio. Incluye: sitemap.xml, meta tags optimizados, y estructura de datos para aparecer en búsquedas como 'centros comerciales Chacao'."
+                detail: "Configuración para que Google encuentre y entienda el sitio: sitemap, robots, metadatos y estructura técnica lista para búsquedas locales."
             },
             {
-                text: "Data Suite: Google Analytics 4 + Reportes",
+                text: "Data Suite (GA4): reportes mensuales",
+                detailTitle: "Data Suite (Google Analytics 4) — $250–$400",
                 included: true,
-                detail: "Panel completo de analítica: cuántas visitas recibes, de dónde vienen (Google, Instagram, directo), qué locales son más populares, y reportes mensuales automáticos vía email."
+                detail: "Medición accionable: visitas, fuentes (Instagram/Google/directo) y reporte mensual automatizado para toma de decisiones."
             },
             {
-                text: "Infraestructura Ad-Ready: Meta Pixel y Open Graph",
+                text: "Ad-Ready: Meta Pixel listo",
+                detailTitle: "Infraestructura Ad-Ready (Meta Pixel) — $150–$250",
                 included: true,
-                detail: "Meta Pixel instalado te permite crear audiencias de retargeting en Instagram/Facebook. Open Graph hace que al compartir el link en WhatsApp, se vea una tarjeta visual premium (no solo un link sin formato)."
+                detail: "Pixel instalado y validado para campañas futuras. Base lista para retargeting cuando decidan activar publicidad."
             },
             {
-                text: "Tarjetas optimizadas para compartir en WhatsApp",
+                text: "WhatsApp premium: tarjeta visual (Open Graph)",
+                detailTitle: "WhatsApp premium (Open Graph) — $150–$250",
                 included: true,
-                detail: "Cuando alguien comparta tu sitio, aparecerá con imagen, título y descripción atractiva. Incrementa clicks hasta 300% vs. un link simple. Esencial para marketing viral orgánico."
+                detail: "Tarjetas visuales al compartir el link: imagen, título y descripción cuidada. Se ve profesional y genera más confianza al compartir."
+            },
+            {
+                text: "Kit de lanzamiento: QR + copies listos",
+                detailTitle: "Kit de lanzamiento (entregable) — $100–$200",
+                included: true,
+                detail: "QR listo para imprimir + 5 copies listos para WhatsApp/Instagram para anunciar el mapa/directorio y mover tráfico desde el día 1."
             },
         ],
-        tagline: "Construcción + Conexión al mundo.",
+        tagline: "Activo + Conexión al mundo + Medición.",
+        note: "Nota: Los montos por módulo son una referencia de alcance para entender la inversión. El precio final se maneja por paquete.",
         highlighted: true,
         icon: Star,
     },
@@ -115,8 +139,8 @@ export default function PricingTable() {
                     <h2 className="text-4xl md:text-5xl font-bold mb-4">
                         Inversión <span className="text-gradient">Fase 1</span>
                     </h2>
-                    <p className="text-gray-400 text-lg">
-                        Infraestructura & Activos Digitales
+                    <p className="text-gray-400 max-w-3xl mx-auto mt-4 px-4 leading-relaxed">
+                        Esto no es una página armada. Es un activo digital hecho con ingeniería: rápido en móvil, con estándar de calidad y una base lista para crecer sin rehacerlo. La diferencia no es que exista, sino que funcione perfecto, se vea premium y sostenga la reputación de La Quilla.
                     </p>
                 </motion.div>
 
@@ -257,7 +281,7 @@ export default function PricingTable() {
                                                                     <X className="w-4 h-4 text-gray-600 flex-shrink-0 mt-0.5" />
                                                                 )}
                                                                 <p className={`text-xs font-semibold ${feature.included ? 'text-white' : 'text-gray-500'}`}>
-                                                                    {feature.text}
+                                                                    {feature.detailTitle || feature.text}
                                                                 </p>
                                                             </div>
                                                             <p className="text-xs text-gray-400 leading-relaxed pl-6">
@@ -265,6 +289,13 @@ export default function PricingTable() {
                                                             </p>
                                                         </div>
                                                     ))}
+                                                    {(tier as any).note && (
+                                                        <div className="pt-2 px-1">
+                                                            <p className="text-[10px] text-gray-500 italic leading-snug">
+                                                                {(tier as any).note}
+                                                            </p>
+                                                        </div>
+                                                    )}
                                                 </div>
                                             </motion.div>
                                         )}
