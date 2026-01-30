@@ -24,7 +24,7 @@ const phases = [
     },
     {
         number: 3,
-        title: "The Perfection Protocol",
+        title: "Protocolo de Perfección",
         description: "Pruebas de velocidad extrema y auditoría de calidad 'Cero Fallos'.",
         icon: Target,
         duration: "Semana 4",
@@ -56,7 +56,7 @@ export default function ExecutionTimeline() {
                     transition={{ duration: 0.8 }}
                 >
                     <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                        Roadmap de <span className="text-gradient">Despliegue</span>
+                        Cronograma de <span className="text-gradient">Despliegue</span>
                     </h2>
                     <p className="text-gray-400 text-lg mb-3">
                         Fase 1: Ejecución estratégica

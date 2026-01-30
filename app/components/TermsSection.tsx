@@ -12,7 +12,7 @@ export default function TermsSection() {
     const handleActivatePhase1 = () => {
         if (!selectedPlan) {
             // Scroll to pricing section
-            const pricingSection = document.getElementById('pricing-section');
+            const pricingSection = document.getElementById('planes-disponibles');
             if (pricingSection) {
                 pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 // Show elegant modal
@@ -23,8 +23,8 @@ export default function TermsSection() {
         } else {
             // Generate message based on plan
             const messages = {
-                ESSENTIAL: "Hola. Confirmo mi aprobación para el PLAN A: ESSENTIAL ($1,500). Estoy listo para iniciar la construcción de La Quilla (Fase 1).",
-                INTEGRATED: "Hola. Confirmo mi aprobación para el PLAN B: INTEGRATED ($2,500). Estoy listo para iniciar el ecosistema completo de La Quilla.",
+                ESSENTIAL: "Hola. Confirmo mi aprobación para el PLAN A: ESENCIAL ($1,500). Estoy listo para iniciar la construcción de La Quilla (Fase 1).",
+                INTEGRATED: "Hola. Confirmo mi aprobación para el PLAN B: INTEGRAL ($2,500). Estoy listo para iniciar el ecosistema completo de La Quilla.",
             };
 
             const message = messages[selectedPlan];
@@ -176,7 +176,7 @@ export default function TermsSection() {
                                 <button
                                     onClick={() => {
                                         setShowModal(false);
-                                        document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                        document.getElementById('planes-disponibles')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                                     }}
                                     className="flex-1 px-6 py-3 bg-iron-gold hover:bg-iron-gold/90 text-iron-black rounded-lg transition-colors duration-300 font-semibold shadow-lg shadow-iron-gold/20"
                                 >

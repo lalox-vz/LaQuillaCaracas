@@ -37,7 +37,7 @@ export default function HeroSection() {
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
                         <span className="block text-white">La Quilla</span>
                         <span className="block text-gradient mt-2 pb-8 leading-normal">
-                            Digitalización de Legado
+                            Digitalizando su Legado
                         </span>
                     </h1>
 

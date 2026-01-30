@@ -10,7 +10,7 @@ type PlanId = 'ESSENTIAL' | 'INTEGRATED';
 const tiers = [
     {
         id: 'ESSENTIAL' as PlanId,
-        name: "OPCIÓN A: ESSENTIAL",
+        name: "OPCIÓN A: ESENCIAL",
         price: "$1,500",
         subtitle: "El Activo Digital (Solo Web)",
         description: "Inversión: $1,500 USD",
@@ -29,7 +29,7 @@ const tiers = [
             },
             {
                 text: "Diseño web premium: 100% móvil",
-                detailTitle: "Diseño web premium (mobile-first) — $350–$500",
+                detailTitle: "Diseño web premium (prioridad móvil) — $350–$500",
                 included: true,
                 detail: "Diseño UI/UX y maquetación responsive. Jerarquía visual, contraste y tipografía para proyectar autoridad de marca."
             },
@@ -59,7 +59,7 @@ const tiers = [
     },
     {
         id: 'INTEGRATED' as PlanId,
-        name: "OPCIÓN B: INTEGRATED",
+        name: "OPCIÓN B: INTEGRAL",
         price: "$2,500",
         subtitle: "El Ecosistema (Web + Tráfico + Data)",
         description: "Inversión: $2,500 USD",
@@ -96,10 +96,10 @@ const tiers = [
                 detail: "Tarjetas visuales al compartir el link: imagen, título y descripción cuidada. Se ve profesional y genera más confianza al compartir."
             },
             {
-                text: "Kit de lanzamiento: QR + copies listos",
+                text: "Kit de lanzamiento: QR + textos listos",
                 detailTitle: "Kit de lanzamiento (entregable) — $100–$200",
                 included: true,
-                detail: "QR listo para imprimir + 5 copies listos para WhatsApp/Instagram para anunciar el mapa/directorio y mover tráfico desde el día 1."
+                detail: "QR listo para imprimir + 5 textos de venta listos para WhatsApp/Instagram para anunciar el mapa/directorio y mover tráfico desde el día 1."
             },
         ],
         tagline: "Activo + Conexión al mundo + Medición.",
@@ -114,8 +114,8 @@ function getWhatsAppUrl(planId: PlanId): string {
     const baseUrl = "https://wa.me/34650969466?text=";
 
     const messages = {
-        ESSENTIAL: "¡Hola IronLith! He revisado la propuesta y estoy listo para comenzar. Acepto la *OPCIÓN A: ESSENTIAL ($1,500)* y quiero iniciar la Fase 1 de La Quilla. ¿Cuál es el siguiente paso?",
-        INTEGRATED: "¡Hola IronLith! Acepto la propuesta y quiero arrancar con la *OPCIÓN B: INTEGRATED ($2,500)*. Estoy emocionado por construir el ecosistema completo para La Quilla. ¡Empecemos!",
+        ESSENTIAL: "¡Hola IronLith! He revisado la propuesta y estoy listo para comenzar. Acepto la *OPCIÓN A: ESENCIAL ($1,500)* y quiero iniciar la Fase 1 de La Quilla. ¿Cuál es el siguiente paso?",
+        INTEGRATED: "¡Hola IronLith! Acepto la propuesta y quiero arrancar con la *OPCIÓN B: INTEGRAL ($2,500)*. Estoy emocionado por construir el ecosistema completo para La Quilla. ¡Empecemos!",
     };
 
     return baseUrl + encodeURIComponent(messages[planId]);
@@ -198,7 +198,7 @@ export default function PricingTable() {
                         </h4>
                         <ul className="space-y-3 text-sm text-gray-300">
                             <li className="flex gap-2"><Check className="w-4 h-4 text-iron-gold flex-shrink-0" /> Diseño premium adaptado a la marca (no plantilla)</li>
-                            <li className="flex gap-2"><Check className="w-4 h-4 text-iron-gold flex-shrink-0" /> Rápido y estable en teléfonos reales (mobile-first)</li>
+                            <li className="flex gap-2"><Check className="w-4 h-4 text-iron-gold flex-shrink-0" /> Rápido y estable en teléfonos reales (prioridad móvil)</li>
                             <li className="flex gap-2"><Check className="w-4 h-4 text-iron-gold flex-shrink-0" /> Compartir pro: tarjeta visual cuidada (Open Graph)</li>
                             <li className="flex gap-2"><Check className="w-4 h-4 text-iron-gold flex-shrink-0" /> Base técnica lista para Google (SEO técnico)</li>
                             <li className="flex gap-2"><Check className="w-4 h-4 text-iron-gold flex-shrink-0" /> QA + checklist de calidad + entrega con llaves</li>
@@ -211,7 +211,7 @@ export default function PricingTable() {
                 </div>
 
                 {/* Subtitle for Pricing Cards */}
-                <div className="text-center mb-8">
+                <div className="text-center mb-8" id="planes-disponibles">
                     <h3 className="text-2xl font-bold text-white">Selecciona tu nivel de alcance</h3>
                 </div>
 
@@ -400,7 +400,7 @@ export default function PricingTable() {
                     <div className="grid md:grid-cols-2 gap-4">
                         <div className="flex items-center gap-3">
                             <div className="w-2 h-2 bg-iron-gold rounded-full" />
-                            <p className="text-gray-300 text-sm">Estructura y diseño UI/UX premium (mobile-first)</p>
+                            <p className="text-gray-300 text-sm">Estructura y diseño UI/UX premium (prioridad móvil)</p>
                         </div>
                         <div className="flex items-center gap-3">
                             <div className="w-2 h-2 bg-iron-gold rounded-full" />

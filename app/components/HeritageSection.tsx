@@ -108,7 +108,7 @@ export default function HeritageSection() {
                             transition={{ duration: 0.6, delay: 0.7 }}
                             className="text-gray-300 leading-relaxed text-justify"
                         >
-                            Hoy, el proyecto <span className="text-iron-gold font-medium">'La Quilla de Caracas'</span> recoge ese legado. Lo que comenzó como un servicio en dos puestos de estacionamiento se ha transformado en un punto de encuentro vibrante donde la ciudad converge día a día. La escala ha crecido, pero la ambición es la misma: honrar el esfuerzo de quienes llegaron primero, convirtiendo este espacio transitado en la referencia de calidad y modernidad más importante de toda Caracas.
+                            Hoy, la infraestructura digital de <span className="text-iron-gold font-medium">'La Quilla de Caracas'</span> recoge ese legado. Lo que comenzó como un servicio en dos puestos de estacionamiento se ha transformado en un punto de encuentro vibrante donde la ciudad converge día a día. La escala ha crecido, pero la ambición es la misma: honrar el esfuerzo de quienes llegaron primero, convirtiendo este espacio transitado en la referencia de calidad y modernidad más importante de toda Caracas.
                         </motion.p>
 
                         {/* Closing Quote */}
