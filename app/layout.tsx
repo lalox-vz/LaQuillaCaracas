@@ -11,8 +11,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    title: "La Quilla | Propuesta de Digitalización - IronLith",
-    description: "Arquitectura Alemana para el Mall del Nuevo Siglo. Propuesta de infraestructura digital premium por IronLith.",
+    metadataBase: new URL('https://la-quilla-caracas.vercel.app'),
+    title: "La Quilla Caracas",
+    description: "Propuesta de Arquitectura Digital por IronLith — Digitalización de Legado (Fase 1).",
     keywords: "La Quilla, Mall Digital, Arquitectura Premium, IronLith, Digitalización, Chacao, Venezuela",
     authors: [{ name: "IronLith" }],
     creator: "IronLith",
@@ -22,16 +23,26 @@ export const metadata: Metadata = {
         follow: false,
     },
     openGraph: {
-        title: "La Quilla | Propuesta Digital IronLith",
-        description: "Arquitectura Alemana aplicada al desarrollo digital. Propuesta exclusiva de 3 fases.",
+        title: "La Quilla Caracas",
+        description: "Propuesta de Arquitectura Digital por IronLith — Digitalización de Legado (Fase 1).",
         type: "website",
-        locale: "es_VE",
+        url: "/",
         siteName: "La Quilla - IronLith",
+        locale: "es_VE",
+        images: [
+            {
+                url: "/og/la-quilla-propuesta-og.png",
+                width: 1200,
+                height: 630,
+                alt: "La Quilla Caracas — Propuesta IronLith",
+            },
+        ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "La Quilla | Propuesta Digital IronLith",
-        description: "Arquitectura Alemana para el Mall del Nuevo Siglo",
+        title: "La Quilla Caracas",
+        description: "Propuesta de Arquitectura Digital por IronLith — Digitalización de Legado (Fase 1).",
+        images: ["/og/la-quilla-propuesta-og.png"],
     },
 };
 
